@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GEFLUX Systems</title>
+  <meta name="description" content="GEFLUX Systems desenvolve software e soluções digitais para usuários e empresas, incluindo sistemas, plataformas, automações, dashboards e ferramentas de produtividade." />
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-2: #0b1830;
+      --card: rgba(12, 24, 48, 0.72);
+      --line: rgba(120, 170, 255, 0.22);
+      --text: #eef4ff;
+      --muted: #a8b8d8;
+      --accent: #79e7d4;
+      --accent-2: #7ab2ff;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top right, rgba(122,178,255,0.18), transparent 28%),
+        radial-gradient(circle at left top, rgba(121,231,212,0.12), transparent 24%),
+        linear-gradient(180deg, var(--bg) 0%, #040b16 100%);
+      min-height: 100%;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(4, 11, 22, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: #03101d;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 12px 30px rgba(122,178,255,0.25);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: var(--muted);
+      padding: 10px 14px;
+      border-radius: 999px;
+      transition: 0.2s ease;
+    }
+
+    .nav a:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
+      text-decoration: none;
+    }
+
+    .hero {
+      padding: 64px 0 26px;
+    }
+
+    .hero-card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(11,24,48,0.78) 0%, rgba(8,18,34,0.88) 100%);
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+      padding: 34px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: -100px -120px auto auto;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(121,231,212,0.16), transparent 60%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      background: rgba(121,231,212,0.08);
+      border: 1px solid rgba(121,231,212,0.16);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(36px, 6vw, 64px);
+      line-height: 1.02;
+      letter-spacing: -1.6px;
+      max-width: 860px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+      max-width: 760px;
+      margin: 18px 0 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 20px;
+      border-radius: 16px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+      min-height: 52px;
+    }
+
+    .btn-primary {
+      color: #04111f;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 18px 40px rgba(122,178,255,0.18);
+    }
+
+    .btn-primary:hover { text-decoration: none; filter: brightness(1.04); }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.08);
+    }
+
+    .btn-secondary:hover {
+      text-decoration: none;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .section {
+      padding: 18px 0 0;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h2, .card h3 {
+      margin: 0 0 12px;
+      letter-spacing: -0.4px;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .support-box {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .badge {
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .contact {
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer {
+      padding: 28px 0 60px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .small {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px) {
+      .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero-card { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">GX</div>
+        <div>GEFLUX Systems</div>
+      </div>
+      <nav class="nav">
+        <a href="#sobre">Sobre</a>
+        <a href="#solucoes">Soluções</a>
+        <a href="#contato">Contato</a>
+        <a href="#politicas">Políticas</a>
+        <a href="#apoio">Apoiar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="eyebrow">Software • Plataformas • Automações • Dashboards</div>
+        <h1>Software e soluções digitais para usuários e empresas.</h1>
+        <p>
+          A GEFLUX Systems desenvolve, comercializa e mantém software e soluções digitais, incluindo sistemas sob demanda,
+          plataformas web, automações, dashboards, ferramentas de produtividade e outros produtos tecnológicos.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contato">Falar com a GEFLUX Systems</a>
+          <a class="btn btn-secondary" href="#apoio">Apoiar o projeto</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="section">
+      <div class="grid grid-3">
+        <article class="card">
+          <h2>Sobre a empresa</h2>
+          <p>
+            A GEFLUX Systems atua no desenvolvimento e evolução contínua de software e produtos digitais para diferentes tipos de usuários,
+            operações e empresas.
+          </p>
+        </article>
+        <article class="card">
+          <h2>O que oferecemos</h2>
+          <p>
+            Sistemas, plataformas, automações, dashboards, ferramentas de produtividade, soluções digitais sob demanda e recursos premium.
+          </p>
+        </article>
+        <article class="card">
+          <h2>Modelo comercial</h2>
+          <p>
+            Venda de produtos digitais, assinaturas, recursos premium, serviços ligados ao software e evolução contínua das soluções oferecidas.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="solucoes" class="section">
+      <div class="grid grid-2">
+        <article class="card">
+          <h2>Soluções digitais</h2>
+          <ul class="list">
+            <li>Sistemas sob demanda</li>
+            <li>Plataformas web</li>
+            <li>Automações e integrações</li>
+            <li>Dashboards e painéis operacionais</li>
+            <li>Ferramentas de produtividade</li>
+            <li>Produtos digitais com recursos premium</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h2>Produtos e evolução</h2>
+          <p>
+            Os produtos da GEFLUX Systems podem evoluir com novas funcionalidades, planos pagos, sincronização em nuvem,
+            melhorias de experiência e novos módulos ao longo do tempo.
+          </p>
+          <div class="badge-row">
+            <span class="badge">Software</span>
+            <span class="badge">Produtividade</span>
+            <span class="badge">Automação</span>
+            <span class="badge">Dashboards</span>
+            <span class="badge">Web</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="apoio" class="section">
+      <article class="card support-box">
+        <h2>Apoiar o projeto</h2>
+        <p>
+          Se você deseja apoiar a evolução dos produtos da GEFLUX Systems, entre em contato ou utilize a página oficial de apoio quando disponível.
+        </p>
+        <div class="hero-actions" style="margin-top:0">
+          <a class="btn btn-primary" href="mailto:contato@gefluxsystems.com?subject=Apoiar%20projeto%20GEFLUX%20Systems">Entrar em contato</a>
+          <a class="btn btn-secondary" href="#contato">Ver contato</a>
+        </div>
+        <p class="small">
+          Você pode substituir esta área depois pelo seu link de pagamento, página de apoio, Stripe, PayPal ou outros métodos.
+        </p>
+      </article>
+    </section>
+
+    <section id="contato" class="section">
+      <div class="grid grid-2">
+        <article class="card">
+          <h2>Atendimento ao cliente</h2>
+          <div class="contact">
+            <div><strong>Empresa:</strong> GEFLUX Systems</div>
+            <div><strong>E-mail:</strong> <a href="mailto:contato@gefluxsystems.com">contato@gefluxsystems.com</a></div>
+            <div><strong>Suporte:</strong> <a href="mailto:suporte@gefluxsystems.com">suporte@gefluxsystems.com</a></div>
+          </div>
+        </article>
+        <article class="card">
+          <h2>Informações comerciais</h2>
+          <p>
+            Esta página apresenta publicamente a marca GEFLUX Systems, suas soluções digitais, formas de contato e políticas básicas para fins de transparência e verificação comercial.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="politicas" class="section">
+      <div class="grid grid-3">
+        <article class="card">
+          <h3>Política de privacidade</h3>
+          <p>
+            As soluções da GEFLUX Systems podem utilizar dados necessários para operação do software, suporte ao cliente e evolução do produto.
+            Informações específicas podem variar conforme cada solução.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Termos</h3>
+          <p>
+            O uso dos produtos e soluções digitais está sujeito a regras, limitações técnicas, atualizações, disponibilidade e condições comerciais definidas pela GEFLUX Systems.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Reembolso e cancelamento</h3>
+          <p>
+            Pedidos relacionados a cancelamento, suporte comercial ou reembolso podem ser encaminhados pelos canais de atendimento informados nesta página.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    © 2026 GEFLUX Systems • Software e soluções digitais.
+  </footer>
+</body>
+</html>
