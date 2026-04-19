@@ -1,90 +1,118 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-
-  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GEFLUX Systems</title>
-  <meta name="description" content="GEFLUX Systems desenvolve software e soluções digitais para usuários e empresas, incluindo sistemas, plataformas, automações, dashboards e ferramentas de produtividade." />
+  <title>GEFLUX Systems — Software e Soluções Digitais</title>
+  <meta name="description" content="GEFLUX Systems desenvolve e comercializa software e soluções digitais para usuários e empresas, incluindo sistemas, plataformas web, automações, dashboards e ferramentas de produtividade." />
+  <meta name="theme-color" content="#081321" />
   <style>
     :root {
-      --bg: #07111f;
-      --bg-2: #0b1830;
-      --card: rgba(12, 24, 48, 0.72);
-      --line: rgba(120, 170, 255, 0.22);
-      --text: #eef4ff;
-      --muted: #a8b8d8;
+      --bg: #06101d;
+      --bg-2: #0a162a;
+      --panel: rgba(10, 22, 42, 0.78);
+      --panel-strong: rgba(12, 26, 48, 0.9);
+      --line: rgba(130, 176, 255, 0.18);
+      --line-strong: rgba(130, 176, 255, 0.28);
+      --text: #edf4ff;
+      --muted: #adc0de;
+      --soft: #7f95b5;
       --accent: #79e7d4;
-      --accent-2: #7ab2ff;
-      --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
-      --radius: 24px;
+      --accent-2: #7aaeff;
+      --danger: #ffb28a;
+      --shadow: 0 18px 48px rgba(0, 0, 0, 0.34);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+      --max: 1180px;
     }
 
     * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at top right, rgba(122,178,255,0.18), transparent 28%),
-        radial-gradient(circle at left top, rgba(121,231,212,0.12), transparent 24%),
-        linear-gradient(180deg, var(--bg) 0%, #040b16 100%);
-      min-height: 100%;
+        radial-gradient(circle at top right, rgba(122, 174, 255, 0.16), transparent 26%),
+        radial-gradient(circle at left top, rgba(121, 231, 212, 0.10), transparent 20%),
+        linear-gradient(180deg, var(--bg) 0%, #030912 100%);
+      min-height: 100vh;
+      line-height: 1.55;
     }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
     .wrap {
-      width: min(1120px, calc(100% - 32px));
+      width: min(var(--max), calc(100% - 32px));
       margin: 0 auto;
     }
 
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 10;
-      backdrop-filter: blur(14px);
-      background: rgba(4, 11, 22, 0.72);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(3, 9, 18, 0.7);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .topbar-inner {
+      min-height: 78px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      padding: 14px 0;
+      gap: 18px;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 14px;
-      font-weight: 800;
-      letter-spacing: 0.2px;
+      min-width: 0;
     }
 
     .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
       display: grid;
       place-items: center;
-      color: #03101d;
       font-weight: 900;
+      color: #051221;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 12px 30px rgba(122,178,255,0.25);
+      box-shadow: 0 14px 32px rgba(122, 174, 255, 0.25);
+      letter-spacing: -0.4px;
+    }
+
+    .brand-copy {
+      min-width: 0;
+    }
+
+    .brand-title {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .brand-subtitle {
+      color: var(--soft);
+      font-size: 13px;
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .nav {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .nav a {
@@ -92,35 +120,48 @@
       padding: 10px 14px;
       border-radius: 999px;
       transition: 0.2s ease;
+      font-size: 14px;
+      font-weight: 600;
     }
 
-    .nav a:hover {
+    .nav a:hover,
+    .nav a:focus-visible {
       color: var(--text);
       background: rgba(255,255,255,0.06);
-      text-decoration: none;
+      outline: none;
     }
 
     .hero {
-      padding: 64px 0 26px;
+      padding: 52px 0 22px;
     }
 
     .hero-card {
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(11,24,48,0.78) 0%, rgba(8,18,34,0.88) 100%);
-      border-radius: 32px;
-      box-shadow: var(--shadow);
-      padding: 34px;
-      overflow: hidden;
       position: relative;
+      overflow: hidden;
+      border-radius: 34px;
+      border: 1px solid var(--line-strong);
+      background: linear-gradient(180deg, rgba(9, 20, 38, 0.94) 0%, rgba(6, 15, 28, 0.98) 100%);
+      box-shadow: var(--shadow);
+      padding: 38px;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -120px -140px auto auto;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(121, 231, 212, 0.14), transparent 62%);
+      pointer-events: none;
     }
 
     .hero-card::after {
       content: "";
       position: absolute;
-      inset: -100px -120px auto auto;
-      width: 360px;
-      height: 360px;
-      background: radial-gradient(circle, rgba(121,231,212,0.16), transparent 60%);
+      inset: auto auto -180px -120px;
+      width: 340px;
+      height: 340px;
+      background: radial-gradient(circle, rgba(122, 174, 255, 0.13), transparent 62%);
       pointer-events: none;
     }
 
@@ -128,36 +169,37 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: var(--accent);
-      background: rgba(121,231,212,0.08);
-      border: 1px solid rgba(121,231,212,0.16);
       padding: 8px 12px;
       border-radius: 999px;
-      font-size: 14px;
+      border: 1px solid rgba(121, 231, 212, 0.16);
+      background: rgba(121, 231, 212, 0.07);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
       margin-bottom: 18px;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(36px, 6vw, 64px);
+      font-size: clamp(38px, 6vw, 66px);
       line-height: 1.02;
-      letter-spacing: -1.6px;
-      max-width: 860px;
+      letter-spacing: -1.8px;
+      max-width: 900px;
     }
 
-    .hero p {
+    .hero-copy {
+      max-width: 780px;
+      margin-top: 18px;
       color: var(--muted);
       font-size: 18px;
-      line-height: 1.7;
-      max-width: 760px;
-      margin: 18px 0 0;
+      line-height: 1.75;
     }
 
     .hero-actions {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
-      margin-top: 28px;
+      margin-top: 30px;
     }
 
     .btn {
@@ -165,21 +207,28 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      padding: 14px 20px;
+      min-height: 54px;
+      padding: 14px 22px;
       border-radius: 16px;
-      font-weight: 700;
       border: 1px solid transparent;
+      font-weight: 800;
       transition: 0.2s ease;
-      min-height: 52px;
+      cursor: pointer;
     }
 
     .btn-primary {
-      color: #04111f;
+      color: #041220;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      box-shadow: 0 18px 40px rgba(122,178,255,0.18);
+      box-shadow: 0 16px 34px rgba(122, 174, 255, 0.18);
     }
 
-    .btn-primary:hover { text-decoration: none; filter: brightness(1.04); }
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      text-decoration: none;
+      transform: translateY(-1px);
+      filter: brightness(1.04);
+      outline: none;
+    }
 
     .btn-secondary {
       color: var(--text);
@@ -187,13 +236,66 @@
       border-color: rgba(255,255,255,0.08);
     }
 
-    .btn-secondary:hover {
-      text-decoration: none;
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
       background: rgba(255,255,255,0.08);
+      outline: none;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .metric {
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      padding: 18px;
+    }
+
+    .metric-label {
+      color: var(--soft);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+    }
+
+    .metric-value {
+      margin-top: 10px;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.6px;
     }
 
     .section {
       padding: 18px 0 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 16px;
+    }
+
+    .section h2 {
+      margin: 0;
+      font-size: 30px;
+      letter-spacing: -0.9px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 720px;
+      margin-top: 8px;
+      line-height: 1.75;
     }
 
     .grid {
@@ -201,83 +303,136 @@
       gap: 18px;
     }
 
-    .grid-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .grid-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
     .card {
-      background: var(--card);
+      border-radius: var(--radius-lg);
       border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 24px;
+      background: var(--panel);
       box-shadow: var(--shadow);
+      padding: 26px;
     }
 
-    .card h2, .card h3 {
+    .card h3 {
       margin: 0 0 12px;
-      letter-spacing: -0.4px;
+      font-size: 22px;
+      letter-spacing: -0.5px;
     }
 
-    .card p, .card li {
+    .card p,
+    .card li {
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.75;
+      margin: 0;
     }
 
     .list {
       margin: 0;
       padding-left: 18px;
-    }
-
-    .support-box {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      align-items: flex-start;
-    }
-
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 12px;
-    }
-
-    .badge {
-      border-radius: 999px;
-      padding: 8px 12px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: var(--text);
-      font-size: 14px;
-    }
-
-    .contact {
       display: grid;
       gap: 10px;
     }
 
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 38px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-line {
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .contact-label {
+      display: block;
+      color: var(--soft);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 4px;
+    }
+
+    .contact-value {
+      font-weight: 700;
+      color: var(--text);
+      word-break: break-word;
+    }
+
+    .highlight-card {
+      border: 1px solid rgba(121, 231, 212, 0.18);
+      background: linear-gradient(180deg, rgba(12, 26, 48, 0.88), rgba(7, 17, 31, 0.98));
+    }
+
+    .legal-note {
+      border-left: 3px solid var(--accent);
+      padding-left: 14px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-top: 14px;
+    }
+
     .footer {
-      padding: 28px 0 60px;
-      color: var(--muted);
+      padding: 28px 0 54px;
+      color: var(--soft);
       font-size: 14px;
     }
 
-    .small {
-      font-size: 14px;
-      color: var(--muted);
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 20px;
+      margin-top: 24px;
     }
 
-    @media (max-width: 900px) {
-      .grid-3, .grid-2 { grid-template-columns: 1fr; }
+    .footer-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a { color: var(--muted); }
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 980px) {
+      .grid-3, .grid-2, .hero-meta { grid-template-columns: 1fr; }
       .topbar-inner {
         flex-direction: column;
         align-items: flex-start;
+        padding: 14px 0;
       }
-      .hero-card { padding: 24px; }
+      .nav { justify-content: flex-start; }
+      .hero-card { padding: 26px; }
+      h1 { letter-spacing: -1.2px; }
     }
   </style>
 </head>
@@ -286,14 +441,17 @@
     <div class="wrap topbar-inner">
       <div class="brand">
         <div class="brand-mark">GX</div>
-        <div>GEFLUX Systems</div>
+        <div class="brand-copy">
+          <div class="brand-title">GEFLUX Systems</div>
+          <div class="brand-subtitle">Software e soluções digitais para usuários e empresas</div>
+        </div>
       </div>
-      <nav class="nav">
+      <nav class="nav" aria-label="Navegação principal">
         <a href="#sobre">Sobre</a>
         <a href="#solucoes">Soluções</a>
+        <a href="#modelo">Modelo comercial</a>
         <a href="#contato">Contato</a>
         <a href="#politicas">Políticas</a>
-        <a href="#apoio">Apoiar</a>
       </nav>
     </div>
   </header>
@@ -301,127 +459,167 @@
   <main class="wrap">
     <section class="hero">
       <div class="hero-card">
-        <div class="eyebrow">Software • Plataformas • Automações • Dashboards</div>
-        <h1>Software e soluções digitais para usuários e empresas.</h1>
-        <p>
-          A GEFLUX Systems desenvolve, comercializa e mantém software e soluções digitais, incluindo sistemas sob demanda,
-          plataformas web, automações, dashboards, ferramentas de produtividade e outros produtos tecnológicos.
+        <div class="eyebrow">GEFLUX Systems</div>
+        <h1>Desenvolvimento, comercialização e evolução contínua de software e soluções digitais.</h1>
+        <p class="hero-copy">
+          A GEFLUX Systems desenvolve produtos digitais, plataformas, sistemas sob demanda, automações,
+          dashboards e ferramentas tecnológicas para diferentes perfis de usuários e empresas.
+          Nossas soluções podem operar em modelo de licenciamento, assinatura, recursos premium e serviços relacionados ao software.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#contato">Falar com a GEFLUX Systems</a>
-          <a class="btn btn-secondary" href="#apoio">Apoiar o projeto</a>
+          <a class="btn btn-primary" href="mailto:gefluxsys@gmail.com?subject=Contato%20comercial%20-%20GEFLUX%20Systems">Falar com a GEFLUX Systems</a>
+          <a class="btn btn-secondary" href="#contato">Atendimento ao cliente</a>
+        </div>
+        <div class="hero-meta">
+          <div class="metric">
+            <div class="metric-label">Atuação</div>
+            <div class="metric-value">Software e soluções digitais</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Modelo</div>
+            <div class="metric-value">Produtos digitais, assinaturas e recursos premium</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Contato</div>
+            <div class="metric-value">gefluxsys@gmail.com</div>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="sobre" class="section">
+      <div class="section-header">
+        <div>
+          <h2>Sobre a GEFLUX Systems</h2>
+          <p class="section-intro">
+            Esta página apresenta publicamente a marca GEFLUX Systems, sua atuação comercial, seus canais de contato
+            e informações básicas para transparência, atendimento ao cliente e verificação de negócio.
+          </p>
+        </div>
+      </div>
       <div class="grid grid-3">
         <article class="card">
-          <h2>Sobre a empresa</h2>
+          <h3>Posicionamento</h3>
           <p>
-            A GEFLUX Systems atua no desenvolvimento e evolução contínua de software e produtos digitais para diferentes tipos de usuários,
-            operações e empresas.
+            A GEFLUX Systems atua no desenvolvimento, comercialização, manutenção e evolução de software e soluções digitais,
+            com foco em confiabilidade, produtividade, automação e experiência de uso.
           </p>
         </article>
         <article class="card">
-          <h2>O que oferecemos</h2>
+          <h3>Público</h3>
           <p>
-            Sistemas, plataformas, automações, dashboards, ferramentas de produtividade, soluções digitais sob demanda e recursos premium.
+            Nossas soluções podem atender usuários finais, profissionais, equipes operacionais, empresas e diferentes contextos de uso,
+            conforme a proposta de cada produto.
           </p>
         </article>
-        <article class="card">
-          <h2>Modelo comercial</h2>
+        <article class="card highlight-card">
+          <h3>Forma de entrega</h3>
           <p>
-            Venda de produtos digitais, assinaturas, recursos premium, serviços ligados ao software e evolução contínua das soluções oferecidas.
+            Os produtos e serviços podem ser disponibilizados como software online, plataformas web, produtos digitais,
+            recursos premium, licenças, assinaturas e serviços relacionados à operação do software.
           </p>
         </article>
       </div>
     </section>
 
     <section id="solucoes" class="section">
+      <div class="section-header">
+        <div>
+          <h2>Soluções oferecidas</h2>
+          <p class="section-intro">
+            A atuação da GEFLUX Systems abrange diferentes categorias de produtos e soluções digitais,
+            com possibilidade de expansão contínua conforme a evolução do portfólio.
+          </p>
+        </div>
+      </div>
       <div class="grid grid-2">
         <article class="card">
-          <h2>Soluções digitais</h2>
+          <h3>Linhas de solução</h3>
           <ul class="list">
-            <li>Sistemas sob demanda</li>
-            <li>Plataformas web</li>
-            <li>Automações e integrações</li>
-            <li>Dashboards e painéis operacionais</li>
+            <li>Sistemas e plataformas web</li>
+            <li>Automações e fluxos digitais</li>
+            <li>Dashboards e painéis de acompanhamento</li>
             <li>Ferramentas de produtividade</li>
             <li>Produtos digitais com recursos premium</li>
+            <li>Soluções tecnológicas sob demanda</li>
           </ul>
         </article>
         <article class="card">
-          <h2>Produtos e evolução</h2>
+          <h3>Escopo comercial</h3>
           <p>
-            Os produtos da GEFLUX Systems podem evoluir com novas funcionalidades, planos pagos, sincronização em nuvem,
-            melhorias de experiência e novos módulos ao longo do tempo.
+            Os pagamentos recebidos podem estar relacionados à venda de software, assinaturas, licenças, recursos premium,
+            suporte ligado ao produto, atualizações e evolução contínua das soluções oferecidas.
           </p>
-          <div class="badge-row">
-            <span class="badge">Software</span>
-            <span class="badge">Produtividade</span>
-            <span class="badge">Automação</span>
-            <span class="badge">Dashboards</span>
-            <span class="badge">Web</span>
+          <div class="pill-row">
+            <span class="pill">Software</span>
+            <span class="pill">Plataformas</span>
+            <span class="pill">Automação</span>
+            <span class="pill">Dashboards</span>
+            <span class="pill">Produtividade</span>
           </div>
         </article>
       </div>
     </section>
 
-    <section id="apoio" class="section">
-      <article class="card support-box">
-        <h2>Apoiar o projeto</h2>
-        <p>
-          Se você deseja apoiar a evolução dos produtos da GEFLUX Systems, entre em contato ou utilize a página oficial de apoio quando disponível.
-        </p>
-        <div class="hero-actions" style="margin-top:0">
-          <a class="btn btn-primary" href="mailto:contato@gefluxsystems.com?subject=Apoiar%20projeto%20GEFLUX%20Systems">Entrar em contato</a>
-          <a class="btn btn-secondary" href="#contato">Ver contato</a>
-        </div>
-        <p class="small">
-          Você pode substituir esta área depois pelo seu link de pagamento, página de apoio, Stripe, PayPal ou outros métodos.
-        </p>
-      </article>
+    <section id="modelo" class="section">
+      <div class="grid grid-2">
+        <article class="card">
+          <h3>Modelo comercial</h3>
+          <p>
+            A GEFLUX Systems pode operar com venda direta de produtos digitais, cobrança recorrente por assinatura,
+            recursos adicionais pagos, serviços associados ao software e outras modalidades compatíveis com soluções digitais.
+          </p>
+        </article>
+        <article class="card highlight-card">
+          <h3>Compromisso com clareza</h3>
+          <p>
+            A identificação comercial, a comunicação com o cliente e os canais de atendimento são mantidos de forma objetiva,
+            para facilitar reconhecimento, suporte e resolução de solicitações relacionadas aos produtos.
+          </p>
+        </article>
+      </div>
     </section>
 
     <section id="contato" class="section">
+      <div class="section-header">
+        <div>
+          <h2>Contato e atendimento</h2>
+          <p class="section-intro">
+            Para contato comercial, dúvidas gerais, suporte inicial, cancelamento ou outras solicitações,
+            utilize o canal oficial informado abaixo.
+          </p>
+        </div>
+      </div>
       <div class="grid grid-2">
         <article class="card">
-          <h2>Atendimento ao cliente</h2>
-          <div class="contact">
-            <div><strong>Empresa:</strong> GEFLUX Systems</div>
-            <div><strong>E-mail:</strong> <a href="mailto:contato@gefluxsystems.com">contato@gefluxsystems.com</a></div>
-            <div><strong>Suporte:</strong> <a href="mailto:suporte@gefluxsystems.com">suporte@gefluxsystems.com</a></div>
-          </div>
-        </article>
-        <article class="card">
-          <h2>Informações comerciais</h2>
-          <p>
-            Esta página apresenta publicamente a marca GEFLUX Systems, suas soluções digitais, formas de contato e políticas básicas para fins de transparência e verificação comercial.
+      <div class="section-header">
+        <div>
+          <h2>Políticas básicas</h2>
+          <p class="section-intro">
+            As condições abaixo existem para oferecer transparência mínima ao cliente e apoiar a comunicação comercial da marca.
           </p>
-        </article>
+        </div>
       </div>
-    </section>
-
-    <section id="politicas" class="section">
       <div class="grid grid-3">
         <article class="card">
-          <h3>Política de privacidade</h3>
+          <h3>Privacidade</h3>
           <p>
-            As soluções da GEFLUX Systems podem utilizar dados necessários para operação do software, suporte ao cliente e evolução do produto.
-            Informações específicas podem variar conforme cada solução.
+            Cada solução pode utilizar apenas os dados necessários para operação do produto, suporte ao cliente,
+            melhoria da experiência e evolução do software, conforme aplicável ao contexto de uso.
           </p>
         </article>
         <article class="card">
           <h3>Termos</h3>
           <p>
-            O uso dos produtos e soluções digitais está sujeito a regras, limitações técnicas, atualizações, disponibilidade e condições comerciais definidas pela GEFLUX Systems.
+            O uso dos produtos e soluções da GEFLUX Systems está sujeito a disponibilidade, requisitos técnicos,
+            atualizações, limitações operacionais e condições comerciais aplicáveis a cada oferta.
           </p>
         </article>
         <article class="card">
-          <h3>Reembolso e cancelamento</h3>
+          <h3>Cancelamento e reembolso</h3>
           <p>
-            Pedidos relacionados a cancelamento, suporte comercial ou reembolso podem ser encaminhados pelos canais de atendimento informados nesta página.
+            Questões relacionadas a cancelamento, suporte comercial, cobranças ou pedidos de reembolso devem ser encaminhadas
+            pelo canal oficial de atendimento para análise conforme o produto ou serviço contratado.
           </p>
         </article>
       </div>
@@ -429,7 +627,15 @@
   </main>
 
   <footer class="footer wrap">
-    © 2026 GEFLUX Systems • Software e soluções digitais.
+    <div class="footer-inner">
+      <div>© 2026 GEFLUX Systems • Software e soluções digitais.</div>
+      <div class="footer-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+        <a href="#politicas">Políticas</a>
+        <a href="mailto:gefluxsys@gmail.com">gefluxsys@gmail.com</a>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
